@@ -16,10 +16,12 @@ public class TASConnection {
     private Statement state;
     private ResultSet set;
 
-    public TastConnection(){
+    public TASConnection(){
         try{
-            
-            
+            Class.forName("com.mysql.jdbc.Driver").newInstance();
+            String url = "jdbc:mysql://localhost/tas";
+            Connection conn = DriverManager.getConnection(url, username,
+                              password);
         }catch(Exception e){}
         
     }
