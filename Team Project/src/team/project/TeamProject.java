@@ -10,12 +10,12 @@ package team.project;
  * @author Travis
  */
 public class TeamProject {
-
     /**
      * @param args the command line arguments
      */
     public static void main(String[] args) {
         // TODO code application logic here
-    }
+        TASConnection db = new TASConnection();
     
+    }
 }

@@ -3,16 +3,16 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
+package team.project;
 import java.sql.*;
 import java.util.*;
-package team.project;
 
 /**
  *
  * @author Travis
  */
 public class TASConnection {
-    private Connection con;
+    private Connection conn;
     private Statement state;
     private ResultSet result;
 
@@ -20,21 +20,22 @@ public class TASConnection {
         try{
             Class.forName("com.mysql.jdbc.Driver").newInstance();
             String url = "jdbc:mysql://localhost/tas";
-            String username = "";//Kept empty for now because we will be Creating a project user 
-            String password = "";//Kept empty for now because we will be Creating a project user                 
-            Connection conn = DriverManager.getConnection(url, username,
-                              password);
+            String username = " ";//Kept empty for now because we will be Creating a project user 
+            String password = " ";//Kept empty for now because we will be Creating a project user                 
+            conn = DriverManager.getConnection(url, username,
+                        password);
             state = conn.createStatement();
-            result = stmt.executeQuery("SELECT * FROM badge WHERE id = '3282F212");
+            result = state.executeQuery("SELECT * FROM badge WHERE id = '3282F212'");
             if(result != null){
                 result.next();
                 String id = result.getString("id");
-                String desc = resilt.getString("description");
+                String desc = result.getString("description");
+                System.out.println(id + " " + desc);
             }
-            result.close(0);
+            result.close();
             state.close();
-            con.close();
-        }catch(Exception e){}
+            conn.close();
+        }catch(Exception e){System.out.println(e.toString());}
         
     }
     

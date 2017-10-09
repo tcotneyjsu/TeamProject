@@ -4,11 +4,17 @@
  * and open the template in the editor.
  */
 package team.project;
-
+import java.util.*;
 /**
  *
  * @author Travis
  */
 public class Punch {
+    private int scheduleTime;
+    private int clockTime;
+    private int adjustedTime;
     
+    public void SetScheduleTime(n){
+        this.scheduleTime = n;
+    }
 }
